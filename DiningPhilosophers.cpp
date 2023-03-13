@@ -38,7 +38,7 @@ public:
 		if (state[n] != EATING) {
 			pthread_cond_wait(&cond[n], &mut);
 		}
-		cout << "Philosopher " << n << " is eating."<< endl;
+		cout << "Philosopher " << (n + 1) << " is eating."<< endl;
 		pthread_mutex_unlock(&mut);
 	}
 
@@ -101,7 +101,7 @@ int main()
 
 	for (int i = 0; i < N; i++) {
 		pthread_create(&thread_id[i], &attr, philosopher, &phil[i]);
-		cout << "Philosopher " << i + 1 << " is thinking" << endl;
+		cout << "Philosopher " << (i + 1) << " is thinking" << endl;
 	}
 
 	for (int i = 0; i < N; i++) {
